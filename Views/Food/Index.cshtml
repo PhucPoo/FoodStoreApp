@@ -1,0 +1,25 @@
+﻿@model IEnumerable<FoodStoreApp.Models.FoodItem>
+
+<h1>Danh sách món ăn</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Price.ToString("C")</td>
+                <td><a href="@Url.Action("Details", "Food", new { id = item.Id })">View</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
